@@ -51,8 +51,7 @@ public class RecursiveMethods {
 		// FIXME create a helper method that can recursively reverse the given array
 		int[] reversed = new int[array.length];
 		int index = array.length - 1;
-		helper(array, reversed, index);
-		return reversed;
+		return helper(array, reversed, index);
 	}
 	
 	public static int[] helper(int[] array, int[] reversed, int index) {
@@ -76,8 +75,17 @@ public class RecursiveMethods {
 	 */
 	public static void circlesUponCircles(double xCenter, double yCenter, double radius,
 			double radiusMinimumDrawingThreshold) {
-		
 		// FIXME
+		if (radius <= radiusMinimumDrawingThreshold) {
+			return;
+		}
+		else {
+			StdDraw.circle(xCenter, yCenter, radius);
+			circlesUponCircles(xCenter+radius, yCenter, radius/3.0, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter, yCenter+radius, radius/3.0, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter-radius, yCenter, radius/3.0, radiusMinimumDrawingThreshold);
+			circlesUponCircles(xCenter, yCenter-radius, radius/3.0, radiusMinimumDrawingThreshold);
+		}
 	}
 
 }
