@@ -53,4 +53,13 @@ public class IterativeMethods {
 		}
 		return reversed;
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(geometricSum(3));
+		System.out.println(gcd(48, 14));
+		int[] arr = {1,3,5,7,9};
+		for (int i : toReversed(arr)) {
+			System.out.print(i + " ");
+		}
+	}
 }
